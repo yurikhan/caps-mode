@@ -63,4 +63,5 @@ capitalized form."
   :init-value nil
   :lighter " Caps")
 
+(provide 'caps-mode)
 ;;; caps-mode.el ends here
