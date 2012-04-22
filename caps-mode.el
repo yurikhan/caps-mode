@@ -5,9 +5,7 @@
 ;; <ihs_4664@yahoo.com>, Kim F. Storm <no-spam@cua.dk>,
 ;; Stefan Monnier <monnier@iro.umontreal.ca>
 
-;; Version: 1.0
-
-;; Time-stamp: <jac -- Thu Oct  7 13:09:00 CDT 2004>
+;; Version: 1.0.1
 
 ;; This file is not part of GNU Emacs, but it is distributed under
 ;; the same terms as GNU Emacs.
@@ -43,12 +41,8 @@
   (insert-char (upcase last-command-char) n))
 
 (defvar caps-mode-map
-  (let ((map (make-keymap)))
-    ;; Or with Emacs-CVS:
-    ;; (define-key map [remap self-insert-command] 'caps-mode-self-insert-command)
-    (substitute-key-definition 'self-insert-command
-                                   'caps-mode-self-insert-command
-                                   map global-map)
+  (let ((map (make-sparse-keymap)))
+    (define-key map [remap self-insert-command] 'caps-mode-self-insert-command)
     map))
 
 ;;;###autoload
