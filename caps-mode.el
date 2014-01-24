@@ -38,7 +38,8 @@
 (defun caps-mode-self-insert-command (&optional n)
   "Like `self-insert-command', but uppercase the the typed character."
   (interactive "p")
-  (insert-char (upcase last-command-event) n))
+  (let ((last-command-event (upcase last-command-event)))
+    (self-insert-command n)))
 
 (defvar caps-mode-map
   (let ((map (make-sparse-keymap)))
